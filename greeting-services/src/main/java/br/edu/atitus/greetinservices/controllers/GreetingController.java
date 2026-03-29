@@ -1,11 +1,10 @@
 package br.edu.atitus.greetinservices.controllers;
 
+import br.edu.atitus.greetinservices.DTO.NameDTO;
 import br.edu.atitus.greetinservices.configs.GreetingConfig;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
@@ -22,13 +21,19 @@ public class GreetingController {
         this.config = config;
     }
 
-    @GetMapping({"","/"})
+    @GetMapping({"","/{name}"})
     public String getGreeting(
-            @RequestParam(required = false) String name) {
+            @PathVariable (required = false) String name) {
         if (name == null || name.isEmpty()) {
             name = config.getDefaultName();
         }
-        String greetingReturn = String.format("%s %s!!!",config.getGreeting(),name);
+        String greetingReturn = String.format("%s, %s!!!",config.getGreeting(),name);
         return greetingReturn;
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public String postGreeting(@RequestBody NameDTO name) {
+        return getGreeting(name.getName());
     }
 }
