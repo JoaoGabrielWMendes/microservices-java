@@ -23,6 +23,7 @@ public class GreetingController {
 
     @GetMapping({"","/{name}"})
     public String getGreeting(
+            @RequestParam (required = false)
             @PathVariable (required = false) String name) {
         if (name == null || name.isEmpty()) {
             name = config.getDefaultName();
