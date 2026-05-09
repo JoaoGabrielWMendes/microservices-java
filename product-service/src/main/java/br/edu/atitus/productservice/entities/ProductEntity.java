@@ -5,21 +5,17 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "tb_product")
 public class ProductEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "description")
-    String description;
-    @Column(name = "brand")
-    String brand;
-    @Column(name = "model")
-    String model;
-    @Column(name = "currency")
-    String currency;
-    @Column(name = "price")
-    Double price;
-    @Column(name = "stock")
-    Integer stock;
+
+    private String description;
+    private String brand;
+    private String model;
+    private String currency;
+    private Double price;
+    private Integer stock;
 
     public Long getId() {
         return id;

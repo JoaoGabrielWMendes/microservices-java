@@ -16,20 +16,12 @@ public class CurrencyEntity {
     @Column(name = "conversion_rate")
     private Double conversionRate;
 
-    public Double getConversionRate() {
-        return conversionRate;
+    public Long getId() {
+        return id;
     }
 
-    public void setConversionRate(Double conversionRate) {
-        this.conversionRate = conversionRate;
-    }
-
-    public String getTargetCurrency() {
-        return targetCurrency;
-    }
-
-    public void setTargetCurrency(String targetCurrency) {
-        this.targetCurrency = targetCurrency;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSourceCurrency() {
@@ -40,11 +32,19 @@ public class CurrencyEntity {
         this.sourceCurrency = sourceCurrency;
     }
 
-    public Long getId() {
-        return id;
+    public String getTargetCurrency() {
+        return targetCurrency;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTargetCurrency(String targetCurrency) {
+        this.targetCurrency = targetCurrency;
+    }
+
+    public Double getConversionRate() {
+        return conversionRate;
+    }
+
+    public void setConversionRate(Double conversionRate) {
+        this.conversionRate = conversionRate;
     }
 }
