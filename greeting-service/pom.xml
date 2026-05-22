@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.edu.atitus</groupId>
-    <artifactId>greeting-services</artifactId>
+    <artifactId>greeting-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>greetin-services</name>
-    <description>greetin-services</description>
+    <name>greeting-service</name>
+    <description>greeting-service</description>
     <url/>
     <licenses>
         <license/>
